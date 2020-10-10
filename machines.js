@@ -10,9 +10,15 @@ function higherOrderFunction(x, y, callback) { // x is a number, and addReferenc
     return callback(x, y);
 }
 
-console.log(higherOrderFunction(5, 5, add)); // Should return 10
+//console.log(higherOrderFunction(5, 5, add)); // Should return 10
 //console.log(higherOrderFunction(20, 15, subtract)); // Should return 5
 
+let calculator = {
+    add: add,
+    subtract: subtract
+}
+
+console.log(calculator.add(2, 3));
 
 
 /*
