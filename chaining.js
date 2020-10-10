@@ -28,3 +28,11 @@ getNewPromise()
     .then(log2) // returns a new promise
     .then(log3) // returns an error that gets caught...
     .catch(catchError); //right here
+
+fetch('url')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+    });
