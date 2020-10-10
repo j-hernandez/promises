@@ -1,4 +1,4 @@
-const id = 'j-hernandez';
+const id = 'j-hernandsafaddfsdaez';
 
 function updateUI(info) {
     document.getElementById('weather').innerHTML = JSON.stringify(info);
@@ -42,9 +42,14 @@ function getWeather(location) {
 document.getElementById('get-user').addEventListener('click', async function() {
     // This function is asynchronous - please wait until its fully resolved
     // before moving on to getWeather
-    let location = await getUser('j-hernandez');
-    let weather = await getWeather(location);
-    updateUI(weather);
+    try {
+        let location = await getUser('j-hernandez');
+        let weather = await getWeather(location);
+        updateUI(weather);
+    } catch(error) {
+        console.error(error);
+    }
+   
 });
 
 
