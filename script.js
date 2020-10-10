@@ -9,7 +9,7 @@ function showError(error) {
 }
 
 function getLocationURL(locationArray) {
-    return `https://api.openweakkkksdlskthermap.org/data/2.5/forecast?q=${locationArray[0]},${locationArray[1]},USA&APPID=2f66e52e225a3d7ce8bf18dd58e5a6fc`;
+    return `https://api.openweathermap.org/data/2.5/forecast?q=${locationArray[0]},${locationArray[1]},USA&APPID=2f66e52e225a3d7ce8bf18dd58e5a6fc`;
 }
 
 function getUser(id) {
@@ -39,17 +39,12 @@ function getWeather(location) {
 }
 
 // Click handler 
-document.getElementById('get-user').addEventListener('click', function() {
-    // 
-    getUser('j-hernandez')
-        // I've got data from github, lets pass it to getWeather
-        .then(getWeather) // getWeather(location)
-        // I've got weather data, now update the UI
-        .then(function (weather) {
-            updateUI(weather);
-        })
-        // Any errors that show up in the above functions will get caught here
-        .catch(showError);
+document.getElementById('get-user').addEventListener('click', async function() {
+    // This function is asynchronous - please wait until its fully resolved
+    // before moving on to getWeather
+    let location = await getUser('j-hernandez');
+    let weather = await getWeather(location);
+    updateUI(weather);
 });
 
 
