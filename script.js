@@ -30,9 +30,7 @@ function getWeather(location, successCallback, failureCallback) {
 
 document.getElementById('get-user').addEventListener('click', function() {
     getUser('j-hernandez', function(userInfo) {
-        getWeather(userInfo.location.split(', '), function(weather) {
-            updateUI(weather)
+        getWeather(userInfo.location.split(', '), function(weather) {updateUI(weather)
         }, showError)
     }, showError)
 });
-
