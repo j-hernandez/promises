@@ -39,9 +39,11 @@ document.getElementById('get-user').addEventListener('click', function() {
     // User Promise has been fulfilled
     userPromise.then(function (userInfo) {
         const weatherPromise = getWeather(userInfo.location.split(', '));
+        // We have user data, and we have weather data at this point
         weatherPromise.then(function(weather) {
             updateUI(weather);
         });
+        // We have user data, but our weather request failed
         weatherPromise.catch(showError);
     });
     // User Promise has been rejected
